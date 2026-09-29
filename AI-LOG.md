@@ -13,9 +13,19 @@ By hand: Ran initial `npm test` gate to confirm failure state (RED).
 ```md 
 ## 2026-09-29 — Brief setup & Cart Total specifications
 Tool: Gemini
-Asked for: Generate and refine `brief.md` based on `cartTotal(items, options)` requirements and constraints.
+Asked for: Generate and refine `BRIEF.md` based on `cartTotal(items, options)` requirements and constraints.
 Kept: Function contract, core specifications (`subtotal`, `VAT`, `shipping`, rounding to whole đồng), and allowed files restriction (`src/cart.js`).
 Changed: Standardized field naming to `qty` (replacing `quantity`), clarified `RangeError` conditions for non-positive or non-integer quantities (`qty <= 0 || !Number.isInteger(qty)`), and renamed exception section to "Error Cases".
 Rejected: External framework/library dependencies (Jest, Lodash) to enforce plain JavaScript constraint.
 By hand: Verified specification logic against the worked example (405,000 subtotal + 32,400 VAT + 30,000 shipping = 467,400 total).
+```
+
+```md
+## 2026-09-29 — E-commerce Shopping Cart Logic Implementation
+Tool: Gemini
+Asked for: Write a plain JavaScript function `cartTotal(items, options)` to calculate cart subtotal, VAT, shipping fees, and handle edge case validations.
+Kept: The entire `cartTotal` function implementation, including parameter destructuring, loop accumulation, VAT and shipping calculations, and output rounding.
+Changed: None.
+Rejected: None.
+By hand: The function specifications, input schema, edge case requirements, and the worked example provided in the prompt.
 ```
