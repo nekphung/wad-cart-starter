@@ -1,9 +1,9 @@
 # Project Rules & Development Harness
 
 ## Tech Stack
-- Node.js (v18+)
-- Plain JavaScript (ES6 Modules/CommonJS)
-- Jest (Testing framework)
+- **Runtime & Test Runner:** Node.js v18+ (using built-in `node --test`)
+- **Language:** Plain JavaScript (ES Modules, `"type": "module"`)
+- **CI:** GitHub Actions (runs automatically on push to `main`)
 
 ## Verification Commands
 - `npm test`: Run test suite locally
