@@ -39,3 +39,13 @@ Changed: Updated test data and expected values to strictly match the project spe
 Rejected: Any test data or expected result that did not match the project specification.
 By hand: Reviewed the generated tests, integrated them into the test file, manually added test cases for negative price (`price = -1`) and zero quantity (`qty = 0`) throwing `RangeError`, and ran `npm test` to verify the results.
 ```
+
+```md
+## 2026-09-29 — CI Workflow Setup
+Tool: Gemini
+Asked for: Create GitHub Actions workflow (`ci.yml`) based on `RULES.md` tech stack and verification commands.
+Kept: Node.js v18 environment setup, automatic trigger on push/PR to `main`, and `npm test` verification command.
+Changed: None.
+Rejected: Any dependency installation steps (`npm install` / `npm ci`) since project uses plain JS with zero external dependencies.
+By hand: Verified workflow configuration against GitHub Actions v4 specification.
+```
