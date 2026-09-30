@@ -1,22 +1,25 @@
-# SELF_ASSESSMENT_REPORT
+# Self-assessment — IA#1
 
-- **Student ID:** 24120416
-- **Student Name:** Đoàn Thế Phùng
-- **Repository Link:** https://github.com/nekphung/wad-cart-starter.git
-- **Self-assessed Total Score:** 100/100
+Submitted by: 24120416 — Đoàn Thế Phùng
 
-| Criterion | Points Claimed | Evidence |
-| :--- | :---: | :--- |
-| **1. Behaviour** | 30/30 | All specification rules hold. `src/cart.js:3-5` returns `0` for an empty/non-array cart before any VAT or shipping is applied. `src/cart.js:15-19` throws `RangeError` on `price < 0`; `src/cart.js:22-26` throws `RangeError` when `!Number.isInteger(qty) \|\| qty <= 0`. `src/cart.js:31-32` applies `vat = subtotal * vatRate` and `shipping = 0` when `subtotal >= freeShipFrom` (inclusive threshold) else `shipFee`; `src/cart.js:34` returns `Math.round(subtotal + vat + shipping)` as a number, never a formatted string. Verified against the worked example: 405,000 subtotal + 32,400 VAT + 30,000 shipping = **467,400**. Commits `9ae339a` (logic) and `28e4cc8` (validation aligned strictly to spec). |
-| **2. Tests** | 20/20 | `npm test` → **6/6 pass, 0 fail** (`node --test`, zero test-framework dependency). Each test asserts exactly one behaviour: worked example `test/cart.test.js:8`, empty cart `test/cart.test.js:18`, free-shipping at threshold `test/cart.test.js:26`, negative price `RangeError` `test/cart.test.js:34`, zero quantity `RangeError` `test/cart.test.js:42`, non-integer quantity `RangeError` `test/cart.test.js:50`. Tests were added incrementally and confirmed RED before implementation. Commits `1a09ed0` and `f54f976`. |
-| **3. The harness** | 20/20 | `RULES.md` documents the stack (Node 18+, ES Modules, `node --test`, GitHub Actions), the verification commands (`npm test`, `npm run format:check`, `npm run format:write`), three "NEVER" rules (no runtime dependencies, no formatted-string prices, no swallowing `RangeError`), and the pre-push gate `npm ci && npm run format:check && npm test`. `.github/workflows/ci.yml` runs on push/PR to `main` and enforces that same three-step gate (`npm ci` → `format:check` → `test`); local run of `npm run format:check` reports "All matched files use Prettier code style!". Commits `a395a0d`, `31fa7fb`, `5b3502c`, `a15e354`, `e8fb4e9`. |
-| **4. The brief** | 15/15 | `BRIEF.md` states the allowed files (`src/cart.js` only, `test/` may be extended), the core specification as a formula (`Total = Math.round(Subtotal + VAT + Shipping)`) with each term defined separately, rounding to whole đồng, and a dedicated **Error Cases** section naming both `RangeError` triggers. The "no dependencies" constraint is stated in section 4. Verified by hand against the worked example arithmetic. Commits `750b93d`, `9de326c`. |
-| **5. AI-LOG.md** | 15/15 | `AI-LOG.md` holds 9 dated entries covering the whole lifecycle. Each entry records the tool used, what was asked for, and explicit **Kept / Changed / Rejected / By hand** lines. Rejected items are named concretely (Jest, Lodash, `npm install` steps), and three entries are logged as `Tool: None` because the work was fully hand-written (Prettier gate, `format:write`, validation refactor, pre-push gate, CI docs). |
-| **Total** | **100/100** | Reproduce with: `npm ci && npm run format:check && npm test` |
+Total I claim: 100 / 100
 
-### What I did not manage (Key Technical Debt)
-1. **Static Analysis & Coverage:** Relied solely on `npm test` and Prettier. Did not configure ESLint for static code analysis or run coverage tools (untested default fallback branches remain).
-2. **Branch & Pipeline Enforcement:** CI workflow exists, but branch protection on `main` was not enabled. Rules were enforced by convention rather than strict GitHub policy.
-3. **Git & Review Workflow:** Committed directly to `main` without PR code reviews or automated commit-linting checks.
-4. **Tooling Configuration:** Lacks explicit `.prettierrc` configuration and coverage for `.md`/CI files in `format:check`.
-5. **Project Documentation:** `README.md` was not updated to reflect final state changes alongside `RULES.md`.
+| Criterion | Max | I claim | Evidence |
+|---|---|---|---|
+| Behaviour | 30 | 30 | `src/cart.js:3-5` returns `0` for empty/non-array items; `src/cart.js:15-19` throws `RangeError` on `price < 0`; `src/cart.js:22-26` throws `RangeError` when `!Number.isInteger(qty) \|\| qty <= 0`; `src/cart.js:31-32` applies VAT and inclusive free-shipping threshold; `src/cart.js:34` returns `Math.round()` as integer number. Worked example passes (405,000 subtotal + 32,400 VAT + 30,000 ship = 467,400). Verified in commits `9ae339a` and `28e4cc8`. |
+| Tests | 20 | 20 | `npm test` → 6/6 pass using `node --test`. Each test asserts 1 behavior: worked example (`test/cart.test.js:8`), empty cart (`test/cart.test.js:18`), free-shipping threshold (`test/cart.test.js:26`), negative price `RangeError` (`test/cart.test.js:34`), zero quantity `RangeError` (`test/cart.test.js:42`), non-integer quantity `RangeError` (`test/cart.test.js:50`). Verified in commits `1a09ed0` and `f54f976`. |
+| Harness | 20 | 20 | `RULES.md` defines stack, 3 NEVER rules, and pre-push gate `npm ci && npm run format:check && npm test`. `.github/workflows/ci.yml` enforces same gate on push/PR to `main`. Local `npm run format:check` reports code matches Prettier style. Verified in commits `a395a0d`, `31fa7fb`, `5b3502c`, `a15e354`, and `e8fb4e9`. |
+| Brief | 15 | 15 | `BRIEF.md` specifies allowed files (`src/cart.js`, `test/`), core formula (`Total = Math.round(Subtotal + VAT + Shipping)`), rounding rules, dedicated Error Cases section for `RangeError`, and zero runtime dependency constraint. Verified in commits `750b93d` and `9de326c`. |
+| AI-LOG.md | 15 | 15 | `AI-LOG.md` contains 9 dated entries with explicit Kept / Changed / Rejected / By hand lines. Concrete rejections listed (Jest, Lodash, `npm install` in CI). Hand-written tasks logged under `Tool: None` (Prettier setup, validation refactor, pre-push gate, CI docs). |
+
+## What I did not manage
+- **Static Analysis & Code Coverage:** Did not implement ESLint or code coverage tools. Untested default parameter fallback branches (`options = {}`) exist in `src/cart.js`.
+- **Branch Protection & GitHub Enforcement:** CI runs on push/PR, but branch protection on `main` was not enabled on GitHub; rules were enforced manually by convention.
+- **Git Workflow & Commit Quality:** All commits were pushed directly to `main` without Pull Requests, peer code reviews, or automated commitlint rules.
+- **Tooling Configuration Scope:** No `.prettierrc` config file was committed, and `format:check` only targets JavaScript files rather than Markdown or YAML files.
+- **Documentation Alignment:** `README.md` was left as starter code rather than updated alongside `RULES.md` and `BRIEF.md`.
+
+## What I would do differently
+- Set up feature branches and Pull Requests from day one with GitHub Branch Protection enabled to prevent direct pushes to `main`.
+- Add an explicit `.prettierrc` file and expand `format:check` coverage to include Markdown and YAML files.
+- Include unit tests covering default parameter fallback logic (`cartTotal(items)`) to ensure 100% line and branch coverage.
