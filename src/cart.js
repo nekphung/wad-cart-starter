@@ -12,13 +12,17 @@ export function cartTotal(items, options) {
     const { price, qty } = item;
 
     // Validate price (must not be negative)
-    if (typeof price !== 'number' || price < 0) {
-      throw new RangeError(`Invalid price: ${price}. Price must be non-negative.`);
+    if (typeof price !== "number" || price < 0) {
+      throw new RangeError(
+        `Invalid price: ${price}. Price must be non-negative.`,
+      );
     }
 
     // Validate qty (must be a positive integer > 0)
-    if (typeof qty !== 'number' || !Number.isInteger(qty) || qty <= 0) {
-      throw new RangeError(`Invalid quantity: ${qty}. Quantity must be a positive integer.`);
+    if (typeof qty !== "number" || !Number.isInteger(qty) || qty <= 0) {
+      throw new RangeError(
+        `Invalid quantity: ${qty}. Quantity must be a positive integer.`,
+      );
     }
 
     subtotal += price * qty;

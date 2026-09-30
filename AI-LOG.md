@@ -49,3 +49,9 @@ Changed: None.
 Rejected: Any dependency installation steps (`npm install` / `npm ci`) since project uses plain JS with zero external dependencies.
 By hand: Verified workflow configuration against GitHub Actions v4 specification.
 ```
+
+```md 
+## 2026-09-30 — Add code format quality gate
+Tool: None
+By hand: Installed Prettier as dev dependency, added `npm run format:check` script to `package.json`, updated `RULES.md`, and configured GitHub Actions CI to execute format checking alongside `npm test`.
+```
