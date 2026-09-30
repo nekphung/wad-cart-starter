@@ -77,3 +77,8 @@ Tool: None. Updated project guidelines to enforce devDependencies rules and adde
 ## 2026-09-30 — Update CI pipeline documentation
 Tool: None. Updated log entry to reflect that `npm ci` and `npm run format:check` are enabled in `ci.yml` to support devDependencies (Prettier) checks during quality gate runs.
 ```
+
+```md 
+## 2026-09-30 — Clarify allowed files in BRIEF.md
+Tool: None. Updated BRIEF.md allowed files section to explicitly list package.json and package-lock.json for devDependencies management.
+```

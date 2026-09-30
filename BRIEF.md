@@ -3,6 +3,7 @@
 ## 1. Allowed Files
 - Modify only `src/cart.js`.
 - Test files in `test/` may be added/updated.
+- Project dependency configuration: `package.json` and `package-lock.json` (for devDependencies and formatting scripts)
 
 ## 2. Core Specification
 Calculate total cart amount: `Total = Math.round(Subtotal + VAT + Shipping)`.
