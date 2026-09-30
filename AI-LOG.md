@@ -72,3 +72,8 @@ By hand: Refactored input validation for both price and quantity in cartTotal to
 ## 2026-09-30 — Update project constraints and pre-push quality gate
 Tool: None. Updated project guidelines to enforce devDependencies rules and added local quality gate command requirement (`npm ci && npm run format:check && npm test`) prior to pushing.
 ```
+
+```md 
+## 2026-09-30 — Update CI pipeline documentation
+Tool: None. Updated log entry to reflect that `npm ci` and `npm run format:check` are enabled in `ci.yml` to support devDependencies (Prettier) checks during quality gate runs.
+```
