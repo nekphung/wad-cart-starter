@@ -61,3 +61,9 @@ By hand: Installed Prettier as dev dependency, added `npm run format:check` scri
 Tool: None
 By hand: Added `format:write` script to `package.json` for local auto-formatting and updated `RULES.md` verification commands accordingly.
 ```
+
+```md 
+## 2026-09-30 — Refactor price and quantity validation logic
+Tool: None
+By hand: Refactored input validation for both price and quantity in cartTotal to align strictly with spec rules and verified all unit tests pass.
+```
