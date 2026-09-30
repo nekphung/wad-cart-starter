@@ -67,3 +67,8 @@ By hand: Added `format:write` script to `package.json` for local auto-formatting
 Tool: None
 By hand: Refactored input validation for both price and quantity in cartTotal to align strictly with spec rules and verified all unit tests pass.
 ```
+
+```md 
+## 2026-09-30 — Update project constraints and pre-push quality gate
+Tool: None. Updated project guidelines to enforce devDependencies rules and added local quality gate command requirement (`npm ci && npm run format:check && npm test`) prior to pushing.
+```

@@ -11,6 +11,7 @@
 - `npm run format:write`: Automatically format code using Prettier
 
 ## Constraints & Guidelines
-- **NEVER** use external third-party dependencies/libraries in `src/cart.js`.
+- **NEVER** add dependencies to runtime code (src/cart.js, test/); devDependencies such as Prettier are allowed.
 - **NEVER** return prices as formatted strings (e.g., using `.toFixed()`); always return a rounded integer `number`.
 - **NEVER** ignore or silence RangeError exceptions for negative prices or non-integer quantities.
+- **Before every push:** `npm ci && npm run format:check && npm test` must pass. CI runs the same gate.
