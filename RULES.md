@@ -7,6 +7,8 @@
 
 ## Verification Commands
 - `npm test`: Run test suite locally
+- `npm run format:check`: Check code formatting using Prettier
+- `npm run format:write`: Automatically format code using Prettier
 
 ## Constraints & Guidelines
 - **NEVER** use external third-party dependencies/libraries in `src/cart.js`.

@@ -55,3 +55,9 @@ By hand: Verified workflow configuration against GitHub Actions v4 specification
 Tool: None
 By hand: Installed Prettier as dev dependency, added `npm run format:check` script to `package.json`, updated `RULES.md`, and configured GitHub Actions CI to execute format checking alongside `npm test`.
 ```
+
+```md 
+## 2026-09-30 — Add code format write command to Harness
+Tool: None
+By hand: Added `format:write` script to `package.json` for local auto-formatting and updated `RULES.md` verification commands accordingly.
+```
